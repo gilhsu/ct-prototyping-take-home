@@ -1,12 +1,21 @@
-# ct-prototypes
+# Click Prototyping
 
-Welcome to the Click Prototyping team repository. 
+Welcome to the Click Prototyping front end development project. 
 
-All prototypes are created in this repository. For now we are using a new directory per app, with a React Native client and ExpressJS API server.
+This skeleton use the expo framework to streamline React Native development and testing.
 
-## Template app and directory
+You will need node installed on your machine. Node v14 (latest LTS version) was used to create this skeleton.
 
-The `/template` directory provides boilerplate code to get started on new apps.
+You may need to install the expo client globally to start the server correctly,
+
+`npm install -g expo-cli`
+
+## Development
+
+The `/project` directory contains the main client component to build upon.
+
+Install dependencies:
+`npm install`
 
 To run mobile application:
 `npm run start`
@@ -14,15 +23,6 @@ To run mobile application:
 To run in web:
 `npm run web`
 
-To run express server:
-`npm run server`
+Please ignore any git-related files or artifiacts, you do not need to push your code to a remote repository. Simple re-zip the directory and send it back when you are finished.
 
-## Creating a new app
-1. Make a new directory for you app: `mkdir <new_app>`
-2. Copy the `/template` directory: `cp template/* <new_app>/`
-3. Update the `App.jsx` in your new directory:
-⋅⋅* Rename the component name from `TemplateApp`
-4. Update the root `App.tsx` to import you app
-⋅⋅* `Update import TemplateApp from './template/App';` to import your `App.tsx` component
-5. Update the root `server.js` to use your apps express app 
-⋅⋅* `const app = require('./template/server.js')` to import your `server.js` file
+Please do not hesitate to reach out to with questions or clarifications.

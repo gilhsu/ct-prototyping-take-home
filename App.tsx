@@ -2,11 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import TemplateApp from './template/App';
+import MainApp from './project/App';
 
 export default function App() {
   return (
-    <TemplateApp />
+    <MainApp />
   );
 }
 
