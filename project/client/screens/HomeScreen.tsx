@@ -34,9 +34,9 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Sessions Completed</Text>
-        <Text style={styles.title}>Today</Text>
+      <View>
+        <Text style={styles.title}>Today's Summary</Text>
+        <Text style={styles.subtitle}>Sessions Completed</Text>
         <Text style={styles.countText}>{sessionCount}</Text>
         <View style={styles.subtitleContainer}>
           <Text style={styles.subtitle}>Complete up to</Text>
@@ -66,23 +66,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: 64,
+    paddingTop: 84,
     paddingBottom: 32,
     marginLeft: 24,
     marginRight: 24,
   },
-  titleContainer: {
-    marginTop: 48,
-  },
+
   title: {
     color: COLORS.text,
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 16,
   },
   countText: {
     color: COLORS.primary,
-    fontSize: 100,
+    fontSize: 120,
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 32,
@@ -95,6 +94,12 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: 24,
     textAlign: "center",
+  },
+  primarySubtitle: {
+    color: COLORS.primary,
+    fontSize: 24,
+    textAlign: "center",
+    marginBottom: 48,
   },
   primaryText: {
     color: COLORS.primary,
