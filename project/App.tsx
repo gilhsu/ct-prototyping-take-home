@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 
 import RootNavigator from "./client/navigation/RootNavigator";
-import GameContext from "./client/context/GameContext";
+import SessionContext from "./client/context/SessionContext";
 
 export default function MainApp() {
-  const [gameCount, setGameCount] = useState(0);
-  const [maxGameCount, setMaxGameCount] = useState(2);
+  const [sessionCount, setSessionCount] = useState(0);
+  const [maxSessionCount, setMaxSessionCount] = useState(2);
   const [sessionNumbers, setSessionNumbers] = useState<number[]>([]);
   const [numberIndex, setNumberIndex] = useState(0);
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
 
   const resetData = () => {
-    setGameCount(0);
-    setMaxGameCount(2);
+    setSessionCount(0);
+    setMaxSessionCount(2);
     setSessionNumbers([]);
     setNumberIndex(0);
     setCorrectAnswerCount(0);
   };
 
   return (
-    <GameContext.Provider
+    <SessionContext.Provider
       value={{
-        gameCount,
-        setGameCount,
-        maxGameCount,
-        setMaxGameCount,
+        sessionCount,
+        setSessionCount,
+        maxSessionCount,
+        setMaxSessionCount,
         sessionNumbers,
         setSessionNumbers,
         numberIndex,
@@ -35,6 +35,6 @@ export default function MainApp() {
       }}
     >
       <RootNavigator />
-    </GameContext.Provider>
+    </SessionContext.Provider>
   );
 }

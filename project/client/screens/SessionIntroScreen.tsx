@@ -7,21 +7,21 @@ import {
   NavigationProp,
 } from "@react-navigation/native";
 
-import GameContext from "../context/GameContext";
+import SessionContext from "../context/SessionContext";
 import Button from "../components/Button";
 import { COLORS } from "../constants/colors";
 
 const MAX_NUMBER_RANGE = 99;
 
-export default function GameIntroScreen() {
+export default function SessionIntroScreen() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const {
-    gameCount,
-    setGameCount,
+    sessionCount,
+    setSessionCount,
     setSessionNumbers,
     setNumberIndex,
     setCorrectAnswerCount,
-  } = useContext(GameContext);
+  } = useContext(SessionContext);
 
   const getSessionNumbers = () => {
     const randomNumbers = Array.from(Array(10)).reduce((acc, elm, i) => {
@@ -36,9 +36,9 @@ export default function GameIntroScreen() {
   const handleStartSessionPress = () => {
     setNumberIndex(0);
     setCorrectAnswerCount(0);
-    setGameCount(gameCount + 1);
+    setSessionCount(sessionCount + 1);
     getSessionNumbers();
-    navigation.navigate("GameInProgress");
+    navigation.navigate("SessionInProgress");
   };
 
   return (

@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
-const maxGameCount = createContext({
-  gameCount: 0,
-  setGameCount: (count: number) => {},
-  maxGameCount: 3,
-  setMaxGameCount: (count: number) => {},
+const sessionContext = createContext({
+  sessionCount: 0,
+  setSessionCount: (count: number) => {},
+  maxSessionCount: 3,
+  setMaxSessionCount: (count: number) => {},
   sessionNumbers: [] as number[],
   setSessionNumbers: (numbers: number[]) => {},
   numberIndex: 0,
@@ -14,4 +14,4 @@ const maxGameCount = createContext({
   resetData: () => {},
 });
 
-export default maxGameCount;
+export default sessionContext;

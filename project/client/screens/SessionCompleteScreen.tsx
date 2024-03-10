@@ -3,58 +3,37 @@ import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import {
   useNavigation,
-  useRoute,
   ParamListBase,
   NavigationProp,
-  RouteProp,
 } from "@react-navigation/native";
 
-import GameContext from "../context/GameContext";
 import Button from "../components/Button";
+import SessionContext from "../context/SessionContext";
 import { COLORS } from "../constants/colors";
 
-interface GameAnswerRouteProps extends RouteProp<ParamListBase> {
-  params: {
-    isCorrect: boolean;
-    nextNumber: number;
-  };
-}
-
-export default function GameAnswer() {
+export default function SessionComplete() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const route: GameAnswerRouteProps = useRoute();
-  const { numberIndex, setNumberIndex } = useContext(GameContext);
-  const { isCorrect, nextNumber } = route.params;
-
-  const isNextEven = nextNumber % 2 === 0 ? true : false;
-  const answerText = isCorrect ? "Great Work 🎉" : "Almost... 😬";
-  const evenOddText = isNextEven ? "Even" : "Odd";
-  const answerSubText = isCorrect
-    ? `Is an ${evenOddText} number!`
-    : `Is actually an ${evenOddText} number.`;
-
-  const handleStartSessionPress = () => {
-    if (numberIndex < 9) {
-      setNumberIndex(numberIndex + 1);
-      navigation.navigate("GameInProgress");
-    } else {
-      navigation.navigate("GameComplete");
-    }
-  };
+  const { correctAnswerCount } = useContext(SessionContext);
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>{answerText}</Text>
-        <Text style={styles.numberText}>{nextNumber}</Text>
-        <Text style={styles.subtitle}>{answerSubText}</Text>
+        <Text style={styles.emoji}>✅</Text>
+        <Text style={styles.title}>Session Complete!</Text>
+        <View style={styles.resultsContainer}>
+          <Text style={styles.subtitle}>You got</Text>
+          <Text
+            style={styles.numberText}
+          >{`${correctAnswerCount} out of 10`}</Text>
+          <Text style={styles.subtitle}>answers correct!</Text>
+        </View>
       </View>
       <View style={styles.buttonContainer}>
         <Button
           type="primary"
-          text="Continue"
-          onPress={handleStartSessionPress}
+          text="Return Home"
+          onPress={() => navigation.navigate("Home")}
         />
       </View>
     </View>
@@ -75,26 +54,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: 24,
     paddingRight: 24,
-    marginTop: 120,
+    marginTop: 60,
+  },
+  resultsContainer: {
+    marginTop: 64,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emoji: {
+    fontSize: 84,
   },
   title: {
     color: COLORS.text,
-    fontSize: 42,
+    fontSize: 36,
     fontWeight: "bold",
     textAlign: "center",
+    marginTop: 24,
   },
   numberText: {
     color: COLORS.primary,
     fontWeight: "bold",
-    fontSize: 160,
+    fontSize: 36,
     letterSpacing: 1,
-    marginTop: 24,
+    marginTop: 8,
+    marginBottom: 8,
   },
   subtitle: {
     color: COLORS.text,
     fontSize: 28,
     textAlign: "center",
-    marginTop: 16,
+    lineHeight: 36,
   },
   buttonContainer: {
     width: "100%",

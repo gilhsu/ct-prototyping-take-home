@@ -8,20 +8,20 @@ import {
 
 import { StatusBar } from "expo-status-bar";
 
-import GameContext from "../context/GameContext";
+import SessionContext from "../context/SessionContext";
 import Button from "../components/Button";
 import { COLORS } from "../constants/colors";
 
 export default function HomeScreen() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const { gameCount, maxGameCount } = useContext(GameContext);
+  const { sessionCount, maxSessionCount } = useContext(SessionContext);
 
-  const hasSessionRemaining = gameCount < maxGameCount;
+  const hasSessionRemaining = sessionCount < maxSessionCount;
 
   const handleStartSessionPress = () => {
     const alertMessage = "You have hit your daily treatment limit.";
     if (hasSessionRemaining) {
-      navigation.navigate("GameIntro");
+      navigation.navigate("SessionIntro");
     } else {
       if (Platform.OS == "web") {
         alert(alertMessage);
@@ -37,12 +37,12 @@ export default function HomeScreen() {
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Sessions Completed</Text>
         <Text style={styles.title}>Today</Text>
-        <Text style={styles.countText}>{gameCount}</Text>
+        <Text style={styles.countText}>{sessionCount}</Text>
         <View style={styles.subtitleContainer}>
           <Text style={styles.subtitle}>Complete up to</Text>
           <Text
             style={styles.primaryText}
-          >{`${maxGameCount} sessions per day`}</Text>
+          >{`${maxSessionCount} sessions per day`}</Text>
         </View>
       </View>
       <View style={styles.buttonContainer}>

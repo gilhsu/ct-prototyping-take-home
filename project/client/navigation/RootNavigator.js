@@ -7,10 +7,10 @@ import { Ionicons } from "@expo/vector-icons";
 import Login from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
-import GameIntroScreen from "../screens/GameIntroScreen";
-import GameInProgressScreen from "../screens/GameInProgressScreen";
-import GameAnswerScreen from "../screens/GameAnswerScreen";
-import GameCompleteScreen from "../screens/GameCompleteScreen";
+import SessionIntroScreen from "../screens/SessionIntroScreen";
+import SessionInProgressScreen from "../screens/SessionInProgressScreen";
+import SessionAnswerScreen from "../screens/SessionAnswerScreen";
+import SessionCompleteScreen from "../screens/SessionCompleteScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import { COLORS } from "../constants/colors";
 
@@ -95,23 +95,23 @@ const RootNavigator = () => {
           options={getHeaderStyles}
         />
         <Stack.Screen
-          name="GameIntro"
-          component={GameIntroScreen}
+          name="SessionIntro"
+          component={SessionIntroScreen}
           options={getHeaderStyles}
         />
         <Stack.Screen
-          name="GameInProgress"
-          component={GameInProgressScreen}
+          name="SessionInProgress"
+          component={SessionInProgressScreen}
           options={getHeaderStyles}
         />
         <Stack.Screen
-          name="GameAnswer"
-          component={GameAnswerScreen}
+          name="SessionAnswer"
+          component={SessionAnswerScreen}
           options={getHeaderStyles}
         />
         <Stack.Screen
-          name="GameComplete"
-          component={GameCompleteScreen}
+          name="SessionComplete"
+          component={SessionCompleteScreen}
           options={getHeaderStyles}
         />
         <Stack.Screen

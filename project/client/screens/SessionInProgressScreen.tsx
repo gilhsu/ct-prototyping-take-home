@@ -7,7 +7,7 @@ import {
   NavigationProp,
 } from "@react-navigation/native";
 
-import GameContext from "../context/GameContext";
+import SessionContext from "../context/SessionContext";
 import Button from "../components/Button";
 import { COLORS } from "../constants/colors";
 
@@ -22,7 +22,8 @@ const AnswerButtons = ({
   isEven,
   currentNumber,
 }: AnswerButtonsProps) => {
-  const { correctAnswerCount, setCorrectAnswerCount } = useContext(GameContext);
+  const { correctAnswerCount, setCorrectAnswerCount } =
+    useContext(SessionContext);
   const handlePress = ({ isEvenButton }: { isEvenButton: boolean }) => {
     const isNextEven = !isEven;
     const isCorrect =
@@ -32,7 +33,7 @@ const AnswerButtons = ({
       setCorrectAnswerCount(correctAnswerCount + 1);
     }
 
-    navigation.navigate("GameAnswer", {
+    navigation.navigate("SessionAnswer", {
       isCorrect,
       nextNumber: currentNumber + 1,
     });
@@ -54,9 +55,9 @@ const AnswerButtons = ({
   );
 };
 
-export default function GameInProgressScreen() {
+export default function SessionInProgressScreen() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const { numberIndex, sessionNumbers } = useContext(GameContext);
+  const { numberIndex, sessionNumbers } = useContext(SessionContext);
   const currentNumber = sessionNumbers[numberIndex];
   const isEven = currentNumber % 2 == 0 ? true : false;
 

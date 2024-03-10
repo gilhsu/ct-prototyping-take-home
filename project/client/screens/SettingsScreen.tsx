@@ -10,15 +10,14 @@ import {
 import { COLORS } from "../constants/colors";
 import RNPickerSelect from "react-native-picker-select";
 import Button from "../components/Button";
-import GameContext from "../context/GameContext";
+import SessionContext from "../context/SessionContext";
 
 export default function SettingsScreen() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const { maxGameCount, setMaxGameCount, resetData } = useContext(GameContext);
+  const { maxSessionCount, setMaxSessionCount, resetData } =
+    useContext(SessionContext);
 
   const confirmReset = () => {
-    const description = "Sorry, this feature is not available.";
-    console.log("time to build prototype!");
     Alert.alert(
       "Reset Progress",
       "Are you sure you want to reset your progress?",
@@ -35,7 +34,7 @@ export default function SettingsScreen() {
       <View style={styles.settingsContainer}>
         <RNPickerSelect
           placeholder={{}}
-          onValueChange={(value) => setMaxGameCount(value)}
+          onValueChange={(value) => setMaxSessionCount(value)}
           items={[
             { label: "1", value: 1 },
             { label: "2", value: 2 },
@@ -44,7 +43,7 @@ export default function SettingsScreen() {
         >
           <View style={styles.settingRowContainer}>
             <Text style={styles.settingTitleText}>Max Sessions Per Day</Text>
-            <Text style={styles.settingValueText}>{maxGameCount}</Text>
+            <Text style={styles.settingValueText}>{maxSessionCount}</Text>
           </View>
         </RNPickerSelect>
         <Pressable onPress={confirmReset}>
