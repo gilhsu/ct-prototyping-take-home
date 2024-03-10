@@ -1,4 +1,4 @@
-# Submitted By Gil Hsu
+# Prototype By [Gil Hsu](https://github.com/gilhsu)
 
 Presented to Click on March 11, 2024
 
