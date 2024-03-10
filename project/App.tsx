@@ -1,23 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
 
-import Home from './client/Home';
+import RootNavigator from "./client/navigation/RootNavigator";
+import GameContext from "./client/context/GameContext";
 
 export default function MainApp() {
+  const [gameCount, setGameCount] = useState(0);
+  const [maxGameCount, setMaxGameCount] = useState(2);
+  const [sessionNumbers, setSessionNumbers] = useState<number[]>([]);
+  const [numberIndex, setNumberIndex] = useState(0);
+  const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
+
+  const resetData = () => {
+    setGameCount(0);
+    setMaxGameCount(2);
+    setSessionNumbers([]);
+    setNumberIndex(0);
+    setCorrectAnswerCount(0);
+  };
+
   return (
-    <View style={styles.container}>
-      <Home />
-      <StatusBar style="auto" />
-    </View>
+    <GameContext.Provider
+      value={{
+        gameCount,
+        setGameCount,
+        maxGameCount,
+        setMaxGameCount,
+        sessionNumbers,
+        setSessionNumbers,
+        numberIndex,
+        setNumberIndex,
+        correctAnswerCount,
+        setCorrectAnswerCount,
+        resetData,
+      }}
+    >
+      <RootNavigator />
+    </GameContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
