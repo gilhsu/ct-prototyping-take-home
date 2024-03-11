@@ -27,7 +27,7 @@ export default function Login() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View>
-        <Text style={styles.title}>numelo</Text>
+        <Text style={styles.title}>numello</Text>
         <View style={styles.titleLine} />
         <Text style={styles.subtitle}>Film Flam Syndrome Therapy</Text>
       </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     marginTop: 16,
-    letterSpacing: 1.5,
+    letterSpacing: 2.5,
   },
   titleLine: {
     borderBottomColor: COLORS.primary,

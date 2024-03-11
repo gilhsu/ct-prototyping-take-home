@@ -53,7 +53,7 @@ export default function HomeScreen() {
         />
         <Button
           type="secondary"
-          text="About Numelo"
+          text="About Numello"
           onPress={() => navigation.navigate("About")}
         />
       </View>

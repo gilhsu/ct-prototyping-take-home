@@ -19,7 +19,7 @@ const Stack = createStackNavigator();
 const getHeaderStyles = ({ navigation, route }) => {
   const { name } = route;
 
-  let displayName = "numelo";
+  let displayName = "numello";
 
   if (name === "Settings" || name === "About") {
     displayName = name.toLowerCase();

@@ -18,7 +18,7 @@ export default function AboutScreen() {
       <StatusBar style="auto" />
       <View style={styles.titleContainer}>
         <Text style={styles.subtitle}>
-          Welcome To <Text style={styles.primaryBoldText}>Numelo</Text>, the
+          Welcome To <Text style={styles.primaryBoldText}>Numello</Text>, the
           world’s first digital therapeutic for Film Flam Syndrome.
         </Text>
         <Text style={styles.subtitle}>
@@ -26,12 +26,13 @@ export default function AboutScreen() {
           is completely treatable.
         </Text>
         <Text style={styles.subtitle}>
-          Research suggests presenting someone affected by FFS, a series of 10
-          random numbers and asking them whether the following number is even or
-          odd, can be helpful.
+          Research suggests that presenting series of brain exercises relating
+          to Even and Odd numbers can substantially reduce the harmful affects
+          of FFS.
         </Text>
         <Text style={styles.subtitle}>
-          We’re here to help you every step of the way.
+          That's why we developed this app, and we’re here to help you every
+          step of the way.
         </Text>
       </View>
       <View style={styles.buttonContainer}>

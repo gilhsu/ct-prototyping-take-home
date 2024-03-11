@@ -31,7 +31,7 @@ export default function SessionAnswer() {
   const evenOddText = isNextEven ? "Even" : "Odd";
   const answerSubText = isCorrect
     ? `Is an ${evenOddText} number!`
-    : `Is actually an ${evenOddText} number.`;
+    : `Is actually an ${evenOddText} number`;
 
   const handleStartSessionPress = () => {
     if (numberIndex < 9) {
